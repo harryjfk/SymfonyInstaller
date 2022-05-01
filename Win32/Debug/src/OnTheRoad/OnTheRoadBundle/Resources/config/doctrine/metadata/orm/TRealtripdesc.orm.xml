@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TRealtripdesc" table="t_realtripdesc">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="time" type="integer" column="time" nullable="false"/>
+    <many-to-one field="idtourpolo" target-entity="TTourpolo">
+      <join-columns>
+        <join-column name="idtourpolo" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idtrip" target-entity="TRealtrip">
+      <join-columns>
+        <join-column name="idtrip" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

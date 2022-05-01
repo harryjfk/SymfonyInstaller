@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TRealtrip" table="t_realtrip">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="isclosed" type="integer" column="isclosed" nullable="false"/>
+    <field name="dateinitrip" type="date" column="dateinitrip" nullable="false"/>
+    <field name="datefintrip" type="date" column="datefintrip" nullable="false"/>
+    <many-to-one field="idtrip" target-entity="TTrip">
+      <join-columns>
+        <join-column name="idtrip" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="iduser" target-entity="TUser">
+      <join-columns>
+        <join-column name="iduser" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

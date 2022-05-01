@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TUserrol" table="t_userrol">
+    <id name="idroluser" type="integer" column="idroluser">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="iduser" target-entity="TUser">
+      <join-columns>
+        <join-column name="iduser" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idrol" target-entity="TRol">
+      <join-columns>
+        <join-column name="idrol" referenced-column-name="idrol"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
